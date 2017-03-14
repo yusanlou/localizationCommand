@@ -7,6 +7,7 @@ public struct localizationCommand {
     let exceptPath : [Path]
     internal var ocPath : [Path] = []
     internal var swiftPath : [Path] = []
+    
     public init(projPath:String,except:[String]){
         let path = Path(projPath).absolute()
         projectPath = path
@@ -16,21 +17,29 @@ public struct localizationCommand {
         print(VERSION.red)
     }
     
-    public mutating func outputChildren(){
-       let optonalPaths = try? projectPath.recursiveChildren()
+    public mutating func findTargetFiles(){
+        let optonalPaths = try? projectPath.recursiveChildren()
         guard let paths = optonalPaths else {return}
         for itemPath in pathsFilter(paths: paths, except: exceptPath){
-           let swifts = itemPath.glob("*.swift")
+            let swifts = itemPath.glob("*.swift")
             for item in swifts {
-               swiftPath.append(item)
+                swiftPath.append(item)
             }
-            
+            let ocs = itemPath.glob("*.m")
+            for item in ocs {
+                ocPath.append(item)
+            }
         }
-        // test 
+        // test
         for item in swiftPath {
             print(item.description.red)
         }
+        for item in ocPath {
+            print(item.description.blue)
+        }
+
     }
+    
     
 }
 

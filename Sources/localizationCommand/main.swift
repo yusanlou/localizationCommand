@@ -59,7 +59,7 @@ if help.value{
     exit(EX_USAGE)
 }
 
-commandService.outputChildren()
+commandService.findTargetFiles()
 
 
 

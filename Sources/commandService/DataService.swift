@@ -8,6 +8,16 @@
 
 import Foundation
 
+class DataHandleManager {
+    
+    let defaltManager = DataHandleManager()
+    
+    var swift_listNode : listNode?
+    var oc_listNode : listNode?
+    
+    
+}
+
 class listNode {
     var head: linkNode?
     var tail: linkNode?
