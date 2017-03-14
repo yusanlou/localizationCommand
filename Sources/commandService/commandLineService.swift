@@ -19,15 +19,12 @@ public struct localizationCommand {
     public mutating func outputChildren(){
        let optonalPaths = try? projectPath.recursiveChildren()
         guard let paths = optonalPaths else {return}
-        for itemPath in paths{
+        for itemPath in pathsFilter(paths: paths, except: exceptPath){
            let swifts = itemPath.glob("*.swift")
-            for except in exceptPath {
-                for item in swifts {
-                    if !(item.description.contains(except.description)){
-                    }
-                    swiftPath.append(item)
-                }
+            for item in swifts {
+               swiftPath.append(item)
             }
+            
         }
         // test 
         for item in swiftPath {
@@ -36,3 +33,5 @@ public struct localizationCommand {
     }
     
 }
+
+
