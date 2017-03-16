@@ -10,7 +10,7 @@ import Foundation
 import PathKit
 
 protocol StringsSearcher {
-    func search(in content: String) -> Set<String>
+    func search(in content: String)
 }
 
 protocol RegexStringsSearcher: StringsSearcher {
@@ -19,18 +19,41 @@ protocol RegexStringsSearcher: StringsSearcher {
 
 extension RegexStringsSearcher {
     func search(in path: Path)  {
-        
+    
         for pattern in patterns {
             guard let regex = try? NSRegularExpression(pattern: pattern, options: []) else {
-                print("Failed to create regular expression: \(pattern)")
+                print("Failed to create regular expression: \(pattern)".red)
                 continue
             }
             let content = parsePathToContent(with: path)
+            
             let matches = regex.matches(in: content, options: [], range: content.fullRange)
+            var extracts : [Values] = []
             for checkingResult in matches {
-                let range = checkingResult.rangeAt(1)
+                let range = checkingResult.rangeAt(0)
                 let extracted = NSString(string: content).substring(with: range)
+                guard let strRegex = try? NSRegularExpression(pattern: LOCAL_ERGEX, options: []) else {
+                    print("Failed to create regular expression: \(pattern)".red)
+                    continue
+                }
+                
+                let strMatches = strRegex.matches(in: extracted, options: [], range: extracted.fullRange)
+                let localizedString = NSString(string: extracted).substring(with: strMatches[0].rangeAt(0))
+                
+                var commont = ""
+                if strMatches.count > 1 {
+                    commont = NSString(string: extracted).substring(with: strMatches[1].rangeAt(0))
+                }
+                let value = Values.init(value: localizedString, comment: commont.characters.count > 0 ? commont : COMMONT)
+                extracts.append(value)
             }
+            if path.lastComponent.contains(FileType.swift.rawValue) {
+                DataHandleManager.defaltManager.swift_listNode?.insert(values: extracts, className: path.lastComponent, path: path.description)
+            }else{
+                DataHandleManager.defaltManager.oc_listNode?.insert(values: extracts, className: path.lastComponent, path: path.description)
+
+            }
+
         }
         
     }
@@ -39,7 +62,7 @@ extension RegexStringsSearcher {
 func pathsFilter(paths:[Path],except:[Path])->[Path]{
     
     if paths.count == 0 {
-        print("your except paths is covered the vailable path".red)
+        print("error: the vailable path is covered by your except path.".red)
         exit(EX_USAGE)
     }
     
@@ -56,7 +79,7 @@ func pathsFilter(paths:[Path],except:[Path])->[Path]{
 
 func parsePathToContent(with path:Path)->String{
     
-    return (try? path.read(.utf8)) ?? ""
+    return (try? path.read()) ?? "read error , this path may be empty."
     
 }
     

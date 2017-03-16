@@ -10,18 +10,48 @@ import Foundation
 
 class DataHandleManager {
     
-    let defaltManager = DataHandleManager()
+    static let defaltManager = DataHandleManager()
     
     var swift_listNode : listNode?
     var oc_listNode : listNode?
     
+    fileprivate init(){
+        swift_listNode = listNode.init()
+        oc_listNode = listNode.init()
+    }
     
+    func mapSwfit(){
+        guard let list = self.swift_listNode else {
+            print("swift_listNode is empty.".blue)
+            return
+        }
+        mapLinkNode(root: list.head)
+    }
+    
+    func mapOC() {
+        guard let list = self.oc_listNode else {
+            print("oc_listNode is empty.".blue)
+            return
+        }
+        mapLinkNode(root: list.head)
+    }
+    
+    fileprivate func mapLinkNode(root:linkNode?)  {
+        if root == nil {
+            return
+        }
+        print(root!.className.blue + ": ")
+        root!.values.map{print($0.localizedString.yellow)}
+        mapLinkNode(root: root!.next)
+    }
 }
 
 class listNode {
     var head: linkNode?
     var tail: linkNode?
-    
+    init() {
+        
+    }
     func insert(values:[Values],className:String,path:String) {
         if tail == nil {
             tail = linkNode(locals:values,className:className,path:path)
