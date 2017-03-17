@@ -2,7 +2,7 @@
 //  Extensons.swift
 //  localizationCommand
 //
-//  Created by 李军杰 on 2017/3/14.
+//  Created by BackNotGod on 2017/3/14.
 //
 //
 

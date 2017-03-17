@@ -2,7 +2,7 @@
 //  CommandLineBehaviorSpectre.swift
 //  localizationCommand
 //
-//  Created by 李军杰 on 2017/3/17.
+//  Created by BackNotGod on 2017/3/17.
 //
 //
 
