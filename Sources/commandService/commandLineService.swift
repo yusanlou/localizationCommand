@@ -44,7 +44,7 @@ public struct localizationCommand :RegexStringsSearcher,RegexStringsWriter{
         }
         
         for item in Progress(swiftPath) {
-            patterns = [TEST_REGEX]
+            patterns = [SWIFT_REGEX]
             search(in: item)
         }
         
@@ -67,7 +67,7 @@ public struct localizationCommand :RegexStringsSearcher,RegexStringsWriter{
         }
         
         defer {
-//            DataHandleManager.defaltManager.mapError()
+            DataHandleManager.defaltManager.mapError()
         }
     }
 

@@ -60,19 +60,23 @@ extension RegexStringsSearcher {
                 
                 /// over here, if localizedString is isAmbiguous,we analysis error
                 if localizedString.isAmbiguous {
+                    print(path.description.red)
                     errors.append(value)
                 }else{
                     extracts.append(value)
                 }
             }
-            
-            if path.lastComponent.contains("swift") {
-                DataHandleManager.defaltManager.swift_listNode?.insert(values: extracts, className: path.lastComponent, path: path.description)
-            }else{
-                DataHandleManager.defaltManager.oc_listNode?.insert(values: extracts, className: path.lastComponent, path: path.description)
+            if extracts.count > 0 {
+                if path.lastComponent.contains("swift") {
+                    DataHandleManager.defaltManager.swift_listNode?.insert(values: extracts, className: path.lastComponent, path: path.description)
+                }else{
+                    DataHandleManager.defaltManager.oc_listNode?.insert(values: extracts, className: path.lastComponent, path: path.description)
+                }
             }
             
+            if errors.count > 0 {
                 DataHandleManager.defaltManager.error_listNode?.insert(values: errors, className: path.lastComponent, path: path.description)
+            }
         }
         
     }

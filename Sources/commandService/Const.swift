@@ -15,8 +15,8 @@ enum FileType :String{
 }
 
 let VERSION = "0.0.1"
-let SWIFT_REGEX = "NSLocalizedString\\(\"([^\\x00-\\xff]+)\", comment: \"\"\\)"
-let OC_REGEX = "NSLocalizedString\\(@\"([^\\x00-\\xff]+)\", (.*?)\\)"
+let SWIFT_REGEX = "NSLocalizedString\\(\"(.+?)\", comment: (.+?)\\)"
+let OC_REGEX = "NSLocalizedString\\(@\"(.+?)\", (.+?)\\)"
 let LOCAL_ERGEX = "\".*?\""
 let COMMONT = "/* No comment provided by engineer. */"
 let TEST_REGEX = "NSLocalizedString\\(\"([^\\x00-\\xff]+)\", comment: \"\"\\)"
