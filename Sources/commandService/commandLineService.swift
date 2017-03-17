@@ -3,7 +3,7 @@ import PathKit
 import Rainbow
 import Progress
 
-public struct localizationCommand :RegexStringsSearcher{
+public struct localizationCommand :RegexStringsSearcher,RegexStringsWriter{
     
     let projectPath : Path
     let exceptPath : [Path]
@@ -58,10 +58,16 @@ public struct localizationCommand :RegexStringsSearcher{
         
         // test
 //        DataHandleManager.defaltManager.mapOC()
-
+        
+        for path in findAllLocalizable(with: projectPath, excluded: exceptPath){
+            if path.lastComponentWithoutExtension == "Localizable" && path.parent().lastComponent == "zh-Hans.lproj" {
+//                print(path.parent().lastComponent.red + path.lastComponentWithoutExtension.yellow + path.description.blue)
+                writeToLocalizable(to: path)
+            }
+        }
+        
     }
-    
-    
+
 }
 
 

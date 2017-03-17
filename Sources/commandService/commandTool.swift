@@ -19,6 +19,7 @@ protocol RegexStringsSearcher: StringsSearcher {
 }
 
 extension RegexStringsSearcher {
+    
     func search(in path: Path)  {
         
         for pattern in patterns {
@@ -55,8 +56,9 @@ extension RegexStringsSearcher {
                     commont = NSString(string: extracted).substring(with: strMatches[1].rangeAt(0))
                 }
                 
-                let value = Values.init(value: localizedString, comment: commont.characters.count > 0 ? commont : COMMONT)
-                /// in here, if localizedString is isAmbiguous,we analysis error
+                let value = Values.init(value: localizedString, comment: "/* \(path.lastComponentWithoutExtension) : \(commont) */")
+                
+                /// over here, if localizedString is isAmbiguous,we analysis error
                 if localizedString.isAmbiguous {
                     errors.append(value)
                 }else{
@@ -64,16 +66,86 @@ extension RegexStringsSearcher {
                 }
             }
             
-            if path.lastComponent.contains(FileType.swift.rawValue) {
+            if path.lastComponent.contains("swift") {
                 DataHandleManager.defaltManager.swift_listNode?.insert(values: extracts, className: path.lastComponent, path: path.description)
             }else{
                 DataHandleManager.defaltManager.oc_listNode?.insert(values: extracts, className: path.lastComponent, path: path.description)
             }
-
+            
+                DataHandleManager.defaltManager.error_listNode?.insert(values: errors, className: path.lastComponent, path: path.description)
         }
         
     }
+    
 }
+
+
+protocol  RegexStringsWriter : StringsSearcher{
+    func writeToLocalizable (to path:Path)
+}
+extension RegexStringsWriter {
+    
+    func writeToLocalizable (to path:Path) {
+        
+        var content = ""
+        let swift =  DataHandleManager.defaltManager.swift_listNode?.head
+        content = "//-------------------swfit-------------------"
+        
+        DataHandleManager.defaltManager.outPutLinkNode(root: swift, action: { valuesOptial in
+            if let values = valuesOptial {
+                for value in values {
+//                    print(value.localizedString.yellow)
+                    content += "\n\(value.comment)\n\(value.localizedString) = \(value.localizedString);\n"
+                }
+            }
+        })
+        
+        content += "\n//\(NSDate())\n"
+        let objc =  DataHandleManager.defaltManager.oc_listNode?.head
+        content += "//-------------------objc-------------------"
+        
+        DataHandleManager.defaltManager.outPutLinkNode(root: objc, action: { valuesOptial in
+            if let values = valuesOptial {
+                for value in values {
+                    content += "\n\(value.comment)\n\(value.localizedString) = \(value.localizedString);\n"
+                }
+            }
+        })
+        
+        content += "\n//\(NSDate())\n"
+        try? path.write(content, encoding: .utf16)
+    }
+    
+}
+
+
+func findAllLocalizable(with path:Path,excluded:[Path]) -> [Path]{
+    
+    if !path.exists {
+        print("path is not exists!".yellow)
+        return []
+    }
+    
+    if !path.isWritable {
+        print("path is not writable!".yellow)
+        return []
+    }
+    let optonalPaths = try? path.recursiveChildren()
+    
+    guard let paths = optonalPaths else {return []}
+    
+    var results : [Path] = []
+    
+    for itemPath in Progress(pathsFilter(paths: paths, except: excluded)){
+        let strings = itemPath.glob("*.strings")
+        if strings.count > 0 {
+            results = results + strings
+        }
+    }
+    
+    return results
+}
+
 
 func pathsFilter(paths:[Path],except:[Path])->[Path]{
     

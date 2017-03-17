@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias writerAction = ([Values]?)->Void
+
 class DataHandleManager {
     
     static let defaltManager = DataHandleManager()
@@ -53,6 +55,15 @@ class DataHandleManager {
         let _ = root!.values.map{print($0.localizedString.yellow)}
         mapLinkNode(root: root!.next)
     }
+    
+    func outPutLinkNode (root:linkNode?,action:writerAction) {
+        if root == nil {
+            return action(nil)
+        }
+        action(root?.values)
+        outPutLinkNode(root: root!.next, action: action)
+    }
+    
 }
 
 class listNode {

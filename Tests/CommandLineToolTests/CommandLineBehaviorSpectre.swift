@@ -14,16 +14,17 @@ import PathKit
 public func CommandLineToolSpectre() {
     
     describe("commandServiceKit"){
+        let path1 = Path("/Users/lijunjie/desktop/command-localization/localizationCommand")
+        let path2 = Path("/Users/lijunjie//command-localization/localizationCommand")
+        let path3 = Path("/Users/lijunjie/desktop/TSL_APP/TSL_APP")
+        let path4 = Path("/Users/lijunjie/desktop/-localization/localizationCommand")
+        let path5 = Path("/Users/lijunjie/command-localization/localizationCommand")
+        let path6 = Path("/private/")
+
         $0.describe("parsePathToContent function"){
+            
             $0.it("should find correct path"){
-                let path1 = Path("/Users/lijunjie/desktop/command-localization/localizationCommand")
-                let path2 = Path("/Users/lijunjie//command-localization/localizationCommand")
-                let path3 = Path("/Users/lijunjie")
-                let path4 = Path("/Users/lijunjie/desktop/-localization/localizationCommand")
-                let path5 = Path("/Users/lijunjie/command-localization/localizationCommand")
-                let path6 = Path("/private/tmp")
-                
-                
+     
                 try expect(parsePathToContent(with: path1).characters.count) > 0
                 try expect(parsePathToContent(with: path2).characters.count) > 0
                 try expect(parsePathToContent(with: path3).characters.count) > 0
@@ -34,7 +35,20 @@ public func CommandLineToolSpectre() {
                 
             }
         }
-    
+        
+        
+        $0.describe("findAllLocalizable function"){
+            $0.it("findAllLocalizable should return file that contains .strings"){
+            
+                try expect(findAllLocalizable(with: path1,excluded: []).count) == 0
+                try expect(findAllLocalizable(with: path2,excluded: []).count) == 0
+                try expect(findAllLocalizable(with: path3,excluded: []).count) == 0
+                try expect(findAllLocalizable(with: path4,excluded: []).count) == 0
+                try expect(findAllLocalizable(with: path5,excluded: []).count) == 0
+                try expect(findAllLocalizable(with: path6,excluded: []).count) == 0
+                
+            }
+        }
     
         $0.describe("pathsFilter spectre test"){
             $0.it("return value sholud not in paths and should be in except"){
@@ -88,8 +102,9 @@ public func CommandLineToolSpectre() {
                 try expect(str4.isAmbiguous).to.beTrue()
 
             }
-            
         }
+        
+        
         
     }
 
