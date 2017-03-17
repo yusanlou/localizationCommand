@@ -11,6 +11,7 @@ import commandService
  - projectPath: path
  - help:        help infomataion
  - version:     version
+ - a / -r : defalut is -r (append or replace)
  */
 let cli = CommandLineKit.CommandLine()
 let help = BoolOption(shortFlag: "h", longFlag: "help",
@@ -23,7 +24,9 @@ let swift = BoolOption(shortFlag: "s", longFlag: "swift",
                          helpMessage: "will scan code files of *.swift.")
 let oc = BoolOption(shortFlag: "m", longFlag: "oc",
                          helpMessage: "will scan code files of *.m.")
-
+// not in this time
+let appendOpt  = BoolOption(shortFlag: "a", longFlag: "append", helpMessage: "append to the file context.")
+let replaceOpt = BoolOption(shortFlag: "r", longFlag: "replace", helpMessage: "replace to the file context.")
 
 cli.setOptions(help,exceptPath,projectPath,version,swift,oc)
 
@@ -85,7 +88,8 @@ if exceptPath.value == nil {
 }
 
 var commandService = localizationCommand.init(projPath: projectPath.value ?? FileManager.default.currentDirectoryPath, except: exceptPath.value ?? [])
-
+writeAppend = appendOpt.value
+writeReplace = replaceOpt.value
 commandService.findTargetFiles()
 
 

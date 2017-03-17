@@ -82,6 +82,10 @@ class listNode {
         }
     }
     
+    func deleteNode() {
+        
+    }
+    
 }
 
 class linkNode {

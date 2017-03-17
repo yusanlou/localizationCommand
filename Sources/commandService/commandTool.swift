@@ -87,14 +87,17 @@ extension RegexStringsWriter {
     
     func writeToLocalizable (to path:Path) {
         
-        var content = ""
+        var content = !writeAppend ? "" : {
+            return try? path.read(.utf16) 
+        }() ?? ""
+        
+        print(content.red + "    \(writeAppend)".red)
         let swift =  DataHandleManager.defaltManager.swift_listNode?.head
-        content = "//-------------------swfit-------------------"
+        content += "//-------------------swfit-------------------"
         
         DataHandleManager.defaltManager.outPutLinkNode(root: swift, action: { valuesOptial in
             if let values = valuesOptial {
                 for value in values {
-//                    print(value.localizedString.yellow)
                     content += "\n\(value.comment)\n\(value.localizedString) = \(value.localizedString);\n"
                 }
             }

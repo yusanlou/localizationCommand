@@ -21,4 +21,7 @@ let LOCAL_ERGEX = "\".*?\""
 let COMMONT = "/* No comment provided by engineer. */"
 let TEST_REGEX = "NSLocalizedString\\(\"([^\\x00-\\xff]+)\", comment: \"\"\\)"
 
+public var writeAppend = false
+public var writeReplace = true
+
 

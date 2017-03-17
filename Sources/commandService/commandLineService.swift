@@ -66,6 +66,9 @@ public struct localizationCommand :RegexStringsSearcher,RegexStringsWriter{
             }
         }
         
+        defer {
+//            DataHandleManager.defaltManager.mapError()
+        }
     }
 
 }
