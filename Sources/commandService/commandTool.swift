@@ -8,6 +8,7 @@
 
 import Foundation
 import PathKit
+import Progress
 
 protocol StringsSearcher {
     func search(in content: String)
@@ -19,19 +20,23 @@ protocol RegexStringsSearcher: StringsSearcher {
 
 extension RegexStringsSearcher {
     func search(in path: Path)  {
-    
+        
         for pattern in patterns {
+            
             guard let regex = try? NSRegularExpression(pattern: pattern, options: []) else {
                 print("Failed to create regular expression: \(pattern)".red)
                 continue
             }
-            let content = parsePathToContent(with: path)
             
+            let content = parsePathToContent(with: path)
             let matches = regex.matches(in: content, options: [], range: content.fullRange)
             var extracts : [Values] = []
+            
             for checkingResult in matches {
+                
                 let range = checkingResult.rangeAt(0)
                 let extracted = NSString(string: content).substring(with: range)
+                
                 guard let strRegex = try? NSRegularExpression(pattern: LOCAL_ERGEX, options: []) else {
                     print("Failed to create regular expression: \(pattern)".red)
                     continue
@@ -40,18 +45,24 @@ extension RegexStringsSearcher {
                 let strMatches = strRegex.matches(in: extracted, options: [], range: extracted.fullRange)
                 let localizedString = NSString(string: extracted).substring(with: strMatches[0].rangeAt(0))
                 
+                if localizedString.characters.count == 0 {
+                    continue
+                }
+                
                 var commont = ""
+                
                 if strMatches.count > 1 {
                     commont = NSString(string: extracted).substring(with: strMatches[1].rangeAt(0))
                 }
+                
                 let value = Values.init(value: localizedString, comment: commont.characters.count > 0 ? commont : COMMONT)
                 extracts.append(value)
             }
+            
             if path.lastComponent.contains(FileType.swift.rawValue) {
                 DataHandleManager.defaltManager.swift_listNode?.insert(values: extracts, className: path.lastComponent, path: path.description)
             }else{
                 DataHandleManager.defaltManager.oc_listNode?.insert(values: extracts, className: path.lastComponent, path: path.description)
-
             }
 
         }

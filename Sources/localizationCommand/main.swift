@@ -26,6 +26,7 @@ let oc = BoolOption(shortFlag: "m", longFlag: "oc",
 
 
 cli.setOptions(help,exceptPath,projectPath,version,swift,oc)
+
 cli.formatOutput = { s,type in
     var str: String
     switch(type) {
@@ -47,7 +48,33 @@ do {
     cli.printUsage(error)
     exit(EX_USAGE)
 }
-var commandService = localizationCommand.init(projPath: projectPath.value ?? "", except: exceptPath.value ?? [])
+
+if projectPath.value == nil {
+    print("your projectPath input empty , if you want to do this , projectPath will be current path!".yellow)
+    print("you wan to do this ? (y/n) or enter to skip.".red)
+    
+    let respond = readLine()
+    if let res = respond {
+        if res == "n"{
+            exit(EX_USAGE)
+        }
+    }
+}
+
+if exceptPath.value == nil {
+    print("your exceptPath input empty , if you want to do this , we will scan all of this directory and extract the localization str.".yellow)
+    print("you wan to do this (y/n) or enter to skip?".red)
+    
+    let respond = readLine()
+    if let res = respond {
+        if res == "n"{
+            exit(EX_USAGE)
+        }
+    }
+    
+}
+
+var commandService = localizationCommand.init(projPath: projectPath.value ?? FileManager.default.currentDirectoryPath, except: exceptPath.value ?? [])
 
 if version.value {
     commandService.outputVersion()

@@ -12,6 +12,32 @@ extension String{
     var fullRange : NSRange{
         return NSMakeRange(0, utf16.count)
     }
+    //  MARK:substring swift
+    subscript (r: Range<Int>) -> String {
+        get {
+            
+            if r.lowerBound >= 0 && r.upperBound < self.characters.count {
+                let startIndex = self.index(self.startIndex, offsetBy: r.lowerBound)
+                let endIndex = self.index(self.startIndex, offsetBy: r.upperBound)
+                
+                return self[Range(startIndex..<endIndex)]
+            }
+            
+            if r.lowerBound >  self.characters.count - 1 {
+                return ""
+            }
+            
+            if r.lowerBound > 0 && r.lowerBound <= (self.characters.count - 1) && r.upperBound >= self.characters.count{
+                
+                let startIndex = self.index(self.startIndex, offsetBy: r.lowerBound)
+                let endIndex = self.index(self.startIndex, offsetBy: self.characters.count)
+                return self[Range(startIndex..<endIndex)]
+            }
+            
+            return self
+        }
+    }
+
 }
 
 

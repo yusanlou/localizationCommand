@@ -41,7 +41,7 @@ class DataHandleManager {
             return
         }
         print(root!.className.blue + ": ")
-        root!.values.map{print($0.localizedString.yellow)}
+        let _ = root!.values.map{print($0.localizedString.yellow)}
         mapLinkNode(root: root!.next)
     }
 }
