@@ -2,6 +2,7 @@ import Foundation
 import PathKit
 import Rainbow
 import Progress
+
 public struct localizationCommand :RegexStringsSearcher{
     
     let projectPath : Path
@@ -21,12 +22,7 @@ public struct localizationCommand :RegexStringsSearcher{
         patterns = []
         progress = ProgressBar.init(count: 0)
     }
-    
-    
-    public func outputVersion() {
-        print(VERSION.red)
-    }
-    
+
     
     func search(in content: String) {}
     
@@ -46,16 +42,20 @@ public struct localizationCommand :RegexStringsSearcher{
                 ocPath.append(item)
             }
         }
+        
         for item in Progress(swiftPath) {
             patterns = [TEST_REGEX]
             search(in: item)
         }
+        
         // test
 //        DataHandleManager.defaltManager.mapSwfit()
+        
         for item in Progress(ocPath) {
             patterns = [OC_REGEX]
             search(in: item)
         }
+        
         // test
 //        DataHandleManager.defaltManager.mapOC()
 

@@ -49,6 +49,16 @@ do {
     exit(EX_USAGE)
 }
 
+if version.value {
+    
+    exit(EX_USAGE)
+}
+
+if help.value{
+    cli.printUsage()
+    exit(EX_USAGE)
+}
+
 if projectPath.value == nil {
     print("your projectPath input empty , if you want to do this , projectPath will be current path!".yellow)
     print("you wan to do this ? (y/n) or enter to skip.".red)
@@ -75,16 +85,6 @@ if exceptPath.value == nil {
 }
 
 var commandService = localizationCommand.init(projPath: projectPath.value ?? FileManager.default.currentDirectoryPath, except: exceptPath.value ?? [])
-
-if version.value {
-    commandService.outputVersion()
-    exit(EX_USAGE)
-}
-
-if help.value{
-    cli.printUsage()
-    exit(EX_USAGE)
-}
 
 commandService.findTargetFiles()
 

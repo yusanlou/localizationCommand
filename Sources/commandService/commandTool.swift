@@ -31,7 +31,7 @@ extension RegexStringsSearcher {
             let content = parsePathToContent(with: path)
             let matches = regex.matches(in: content, options: [], range: content.fullRange)
             var extracts : [Values] = []
-            
+            var errors : [Values] = []
             for checkingResult in matches {
                 
                 let range = checkingResult.rangeAt(0)
@@ -56,7 +56,12 @@ extension RegexStringsSearcher {
                 }
                 
                 let value = Values.init(value: localizedString, comment: commont.characters.count > 0 ? commont : COMMONT)
-                extracts.append(value)
+                /// in here, if localizedString is isAmbiguous,we analysis error
+                if localizedString.isAmbiguous {
+                    errors.append(value)
+                }else{
+                    extracts.append(value)
+                }
             }
             
             if path.lastComponent.contains(FileType.swift.rawValue) {
@@ -93,5 +98,3 @@ func parsePathToContent(with path:Path)->String{
     return (try? path.read()) ?? "read error , this path may be empty."
     
 }
-    
-    

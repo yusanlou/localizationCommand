@@ -14,10 +14,11 @@ class DataHandleManager {
     
     var swift_listNode : listNode?
     var oc_listNode : listNode?
-    
+    var error_listNode : listNode?
     fileprivate init(){
         swift_listNode = listNode.init()
         oc_listNode = listNode.init()
+        error_listNode = listNode.init()
     }
     
     func mapSwfit(){
@@ -31,6 +32,14 @@ class DataHandleManager {
     func mapOC() {
         guard let list = self.oc_listNode else {
             print("oc_listNode is empty.".blue)
+            return
+        }
+        mapLinkNode(root: list.head)
+    }
+    
+    func mapError() {
+        guard let list = self.error_listNode else {
+            print("error_listNode is empty.".blue)
             return
         }
         mapLinkNode(root: list.head)

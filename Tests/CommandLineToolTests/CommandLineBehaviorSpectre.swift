@@ -75,9 +75,21 @@ public func CommandLineToolSpectre() {
                     try expect(item[bengin..<end].characters.count) <= end - bengin
                 }
             }
+            
+            $0.it("isAmbiguous test correct?"){
+                
+                let str1 = "fdjaklfda%j@fdklafjkld"
+                let str2 = "_shiftButton setTitle:@\"ABC\" forState:UIControlStateNorma"
+                let str3 = "[_shiftButton setTitle:@\"省\" forState:UIControlStateNormal];"
+                let str4 = "nsstring.init(%d,213123);"
+                try expect(str1.isAmbiguous).to.beFalse()
+                try expect(str2.isAmbiguous).to.beFalse()
+                try expect(str3.isAmbiguous).to.beFalse()
+                try expect(str4.isAmbiguous).to.beTrue()
+
+            }
+            
         }
-        
-        
         
     }
 
