@@ -11,6 +11,8 @@ import Foundation
 enum FileType :String{
     case swift = "*.swift"
     case oc = "*.m"
+    case xib = "*.xib"
+    case storyboard = "*.storyboard"
     case other
 }
 

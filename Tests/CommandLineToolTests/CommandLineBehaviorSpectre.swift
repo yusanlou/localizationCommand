@@ -42,7 +42,7 @@ public func CommandLineToolSpectre() {
             
                 try expect(findAllLocalizable(with: path1,excluded: []).count) == 0
                 try expect(findAllLocalizable(with: path2,excluded: []).count) == 0
-                try expect(findAllLocalizable(with: path3,excluded: []).count) == 0
+                try expect(findAllLocalizable(with: path3,excluded: []).count) > 0
                 try expect(findAllLocalizable(with: path4,excluded: []).count) == 0
                 try expect(findAllLocalizable(with: path5,excluded: []).count) == 0
                 try expect(findAllLocalizable(with: path6,excluded: []).count) == 0
