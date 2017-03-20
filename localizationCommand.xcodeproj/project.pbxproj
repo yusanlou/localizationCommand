@@ -61,119 +61,119 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C452F6851E7BA3EC002C9430 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = OBJ_86;
-			remoteInfo = Spectre;
-		};
-		C452F6861E7BA3EC002C9430 /* PBXContainerItemProxy */ = {
+		C41BFB921E7FE00C0098268F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = OBJ_60;
 			remoteInfo = CommandLineKit;
 		};
-		C452F6871E7BA3EC002C9430 /* PBXContainerItemProxy */ = {
+		C41BFB931E7FE00C0098268F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = OBJ_69;
 			remoteInfo = Rainbow;
 		};
-		C452F6881E7BA3EC002C9430 /* PBXContainerItemProxy */ = {
+		C41BFB941E7FE00C0098268F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = OBJ_86;
 			remoteInfo = Spectre;
 		};
-		C452F6891E7BA3EC002C9430 /* PBXContainerItemProxy */ = {
+		C41BFB951E7FE00C0098268F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = OBJ_100;
 			remoteInfo = Progress;
 		};
-		C452F68A1E7BA3EC002C9430 /* PBXContainerItemProxy */ = {
+		C41BFB961E7FE00C0098268F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = OBJ_109;
 			remoteInfo = PathKit;
 		};
-		C452F68B1E7BA3EC002C9430 /* PBXContainerItemProxy */ = {
+		C41BFB971E7FE00C0098268F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = OBJ_86;
+			remoteInfo = Spectre;
+		};
+		C41BFB981E7FE00C0098268F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = OBJ_60;
 			remoteInfo = CommandLineKit;
 		};
-		C452F68C1E7BA3EC002C9430 /* PBXContainerItemProxy */ = {
+		C41BFB991E7FE00C0098268F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = OBJ_69;
 			remoteInfo = Rainbow;
 		};
-		C452F68D1E7BA3EC002C9430 /* PBXContainerItemProxy */ = {
+		C41BFB9A1E7FE00C0098268F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = OBJ_86;
 			remoteInfo = Spectre;
 		};
-		C452F68E1E7BA3EC002C9430 /* PBXContainerItemProxy */ = {
+		C41BFB9B1E7FE00C0098268F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = OBJ_100;
 			remoteInfo = Progress;
 		};
-		C452F68F1E7BA3EC002C9430 /* PBXContainerItemProxy */ = {
+		C41BFB9C1E7FE00C0098268F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = OBJ_109;
 			remoteInfo = PathKit;
 		};
-		C452F6901E7BA3EC002C9430 /* PBXContainerItemProxy */ = {
+		C41BFB9D1E7FE00C0098268F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = OBJ_118;
 			remoteInfo = commandService;
 		};
-		C452F6911E7BA3EC002C9430 /* PBXContainerItemProxy */ = {
+		C41BFB9E1E7FE00C0098268F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = OBJ_60;
 			remoteInfo = CommandLineKit;
 		};
-		C452F6921E7BA3EC002C9430 /* PBXContainerItemProxy */ = {
+		C41BFB9F1E7FE00C0098268F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = OBJ_69;
 			remoteInfo = Rainbow;
 		};
-		C452F6931E7BA3EC002C9430 /* PBXContainerItemProxy */ = {
+		C41BFBA01E7FE00C0098268F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = OBJ_86;
 			remoteInfo = Spectre;
 		};
-		C452F6941E7BA3EC002C9430 /* PBXContainerItemProxy */ = {
+		C41BFBA11E7FE00C0098268F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = OBJ_100;
 			remoteInfo = Progress;
 		};
-		C452F6951E7BA3EC002C9430 /* PBXContainerItemProxy */ = {
+		C41BFBA21E7FE00C0098268F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
@@ -221,7 +221,7 @@
 		OBJ_54 /* Spectre.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Spectre.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_55 /* Progress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Progress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_56 /* PathKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PathKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		OBJ_57 /* commandService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = commandService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		OBJ_57 /* commandService.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = commandService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_58 /* localizationCommand */ = {isa = PBXFileReference; lastKnownFileType = text; path = localizationCommand; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_59 /* CommandLineToolTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = CommandLineToolTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -400,7 +400,7 @@
 			path = Tests/CommandLineToolTests;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_5 = {
+		OBJ_5 /*  */ = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -408,6 +408,7 @@
 				OBJ_47 /* Tests */,
 				OBJ_51 /* Products */,
 			);
+			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_51 /* Products */ = {
@@ -613,7 +614,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5;
+			mainGroup = OBJ_5 /*  */;
 			productRefGroup = OBJ_51 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -727,87 +728,87 @@
 		OBJ_117 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = OBJ_86 /* Spectre */;
-			targetProxy = C452F6851E7BA3EC002C9430 /* PBXContainerItemProxy */;
+			targetProxy = C41BFB971E7FE00C0098268F /* PBXContainerItemProxy */;
 		};
 		OBJ_134 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = OBJ_60 /* CommandLineKit */;
-			targetProxy = C452F6861E7BA3EC002C9430 /* PBXContainerItemProxy */;
+			targetProxy = C41BFB921E7FE00C0098268F /* PBXContainerItemProxy */;
 		};
 		OBJ_135 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = OBJ_69 /* Rainbow */;
-			targetProxy = C452F6871E7BA3EC002C9430 /* PBXContainerItemProxy */;
+			targetProxy = C41BFB931E7FE00C0098268F /* PBXContainerItemProxy */;
 		};
 		OBJ_136 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = OBJ_86 /* Spectre */;
-			targetProxy = C452F6881E7BA3EC002C9430 /* PBXContainerItemProxy */;
+			targetProxy = C41BFB941E7FE00C0098268F /* PBXContainerItemProxy */;
 		};
 		OBJ_137 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = OBJ_100 /* Progress */;
-			targetProxy = C452F6891E7BA3EC002C9430 /* PBXContainerItemProxy */;
+			targetProxy = C41BFB951E7FE00C0098268F /* PBXContainerItemProxy */;
 		};
 		OBJ_138 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = OBJ_109 /* PathKit */;
-			targetProxy = C452F68A1E7BA3EC002C9430 /* PBXContainerItemProxy */;
+			targetProxy = C41BFB961E7FE00C0098268F /* PBXContainerItemProxy */;
 		};
 		OBJ_152 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = OBJ_60 /* CommandLineKit */;
-			targetProxy = C452F68B1E7BA3EC002C9430 /* PBXContainerItemProxy */;
+			targetProxy = C41BFB981E7FE00C0098268F /* PBXContainerItemProxy */;
 		};
 		OBJ_153 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = OBJ_69 /* Rainbow */;
-			targetProxy = C452F68C1E7BA3EC002C9430 /* PBXContainerItemProxy */;
+			targetProxy = C41BFB991E7FE00C0098268F /* PBXContainerItemProxy */;
 		};
 		OBJ_154 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = OBJ_86 /* Spectre */;
-			targetProxy = C452F68D1E7BA3EC002C9430 /* PBXContainerItemProxy */;
+			targetProxy = C41BFB9A1E7FE00C0098268F /* PBXContainerItemProxy */;
 		};
 		OBJ_155 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = OBJ_100 /* Progress */;
-			targetProxy = C452F68E1E7BA3EC002C9430 /* PBXContainerItemProxy */;
+			targetProxy = C41BFB9B1E7FE00C0098268F /* PBXContainerItemProxy */;
 		};
 		OBJ_156 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = OBJ_109 /* PathKit */;
-			targetProxy = C452F68F1E7BA3EC002C9430 /* PBXContainerItemProxy */;
+			targetProxy = C41BFB9C1E7FE00C0098268F /* PBXContainerItemProxy */;
 		};
 		OBJ_157 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = OBJ_118 /* commandService */;
-			targetProxy = C452F6901E7BA3EC002C9430 /* PBXContainerItemProxy */;
+			targetProxy = C41BFB9D1E7FE00C0098268F /* PBXContainerItemProxy */;
 		};
 		OBJ_171 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = OBJ_60 /* CommandLineKit */;
-			targetProxy = C452F6911E7BA3EC002C9430 /* PBXContainerItemProxy */;
+			targetProxy = C41BFB9E1E7FE00C0098268F /* PBXContainerItemProxy */;
 		};
 		OBJ_172 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = OBJ_69 /* Rainbow */;
-			targetProxy = C452F6921E7BA3EC002C9430 /* PBXContainerItemProxy */;
+			targetProxy = C41BFB9F1E7FE00C0098268F /* PBXContainerItemProxy */;
 		};
 		OBJ_173 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = OBJ_86 /* Spectre */;
-			targetProxy = C452F6931E7BA3EC002C9430 /* PBXContainerItemProxy */;
+			targetProxy = C41BFBA01E7FE00C0098268F /* PBXContainerItemProxy */;
 		};
 		OBJ_174 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = OBJ_100 /* Progress */;
-			targetProxy = C452F6941E7BA3EC002C9430 /* PBXContainerItemProxy */;
+			targetProxy = C41BFBA11E7FE00C0098268F /* PBXContainerItemProxy */;
 		};
 		OBJ_175 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = OBJ_109 /* PathKit */;
-			targetProxy = C452F6951E7BA3EC002C9430 /* PBXContainerItemProxy */;
+			targetProxy = C41BFBA21E7FE00C0098268F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
