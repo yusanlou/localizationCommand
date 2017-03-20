@@ -60,7 +60,6 @@ extension RegexStringsSearcher {
                 
                 /// over here, if localizedString is isAmbiguous,we analysis error
                 if localizedString.isAmbiguous {
-                    print(path.description.red)
                     errors.append(value)
                 }else{
                     extracts.append(value)
@@ -94,27 +93,32 @@ extension RegexStringsWriter {
         var content = !writeAppend ? "" : {
             return try? path.read(.utf16) 
         }() ?? ""
+
+        let contentArr = contentRegex(content: content)
         
-        print(content.red + "    \(writeAppend)".red)
-        let swift =  DataHandleManager.defaltManager.swift_listNode?.head
         content += "//-------------------swfit-------------------"
         
+        let swift =  DataHandleManager.defaltManager.swift_listNode?.head
         DataHandleManager.defaltManager.outPutLinkNode(root: swift, action: { valuesOptial in
             if let values = valuesOptial {
                 for value in values {
-                    content += "\n\(value.comment)\n\(value.localizedString) = \(value.localizedString);\n"
+                    if !contentArr.contains(value.localizedString){
+                        content += "\n\(value.comment)\n\(value.localizedString) = \(value.localizedString);\n"
+                    }
                 }
             }
         })
         
         content += "\n//\(NSDate())\n"
-        let objc =  DataHandleManager.defaltManager.oc_listNode?.head
         content += "//-------------------objc-------------------"
         
+        let objc =  DataHandleManager.defaltManager.oc_listNode?.head
         DataHandleManager.defaltManager.outPutLinkNode(root: objc, action: { valuesOptial in
             if let values = valuesOptial {
                 for value in values {
-                    content += "\n\(value.comment)\n\(value.localizedString) = \(value.localizedString);\n"
+                    if !contentArr.contains(value.localizedString){
+                        content += "\n\(value.comment)\n\(value.localizedString) = \(value.localizedString);\n"
+                    }
                 }
             }
         })
@@ -125,6 +129,14 @@ extension RegexStringsWriter {
     
 }
 
+func contentRegex(content:String)->[String]{
+    guard let regex = try? NSRegularExpression(pattern: "\".+?\"", options: []) else {
+        print("Failed to create regular expression.".red)
+        return []
+    }
+    let matches = regex.matches(in: content, options: [], range: content.fullRange)
+    return matches.map{NSString(string: content).substring(with: $0.rangeAt(0))}
+}
 
 func findAllLocalizable(with path:Path,excluded:[Path]) -> [Path]{
     

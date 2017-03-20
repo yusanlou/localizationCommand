@@ -28,7 +28,7 @@ let oc = BoolOption(shortFlag: "m", longFlag: "oc",
 let appendOpt  = BoolOption(shortFlag: "a", longFlag: "append", helpMessage: "append to the file context.")
 let replaceOpt = BoolOption(shortFlag: "r", longFlag: "replace", helpMessage: "replace to the file context.")
 
-cli.setOptions(help,exceptPath,projectPath,version,swift,oc)
+cli.setOptions(help,exceptPath,projectPath,version,swift,oc,appendOpt,replaceOpt)
 
 cli.formatOutput = { s,type in
     var str: String
@@ -90,7 +90,7 @@ if exceptPath.value == nil {
 var commandService = localizationCommand.init(projPath: projectPath.value ?? FileManager.default.currentDirectoryPath, except: exceptPath.value ?? [])
 writeAppend = appendOpt.value
 writeReplace = replaceOpt.value
-commandService.findTargetFiles()
+commandService.findTargetPath()
 
 
 

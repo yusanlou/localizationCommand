@@ -27,7 +27,7 @@ public struct localizationCommand :RegexStringsSearcher,RegexStringsWriter{
     func search(in content: String) {}
     
     
-    public mutating func findTargetFiles(){
+    public mutating func findTargetPath(){
         
         let optonalPaths = try? projectPath.recursiveChildren()
         guard let paths = optonalPaths else {return}
@@ -42,34 +42,32 @@ public struct localizationCommand :RegexStringsSearcher,RegexStringsWriter{
                 ocPath.append(item)
             }
         }
-        
+        return search()
+    }
+    
+    mutating func search() {
         for item in Progress(swiftPath) {
             patterns = [SWIFT_REGEX]
             search(in: item)
         }
         
-        // test
-//        DataHandleManager.defaltManager.mapSwfit()
-        
         for item in Progress(ocPath) {
             patterns = [OC_REGEX]
             search(in: item)
         }
-        
-        // test
-//        DataHandleManager.defaltManager.mapOC()
-        
+        return write()
+    }
+    
+    func write () {
         for path in findAllLocalizable(with: projectPath, excluded: exceptPath){
             if path.lastComponentWithoutExtension == "Localizable" && path.parent().lastComponent == "zh-Hans.lproj" {
-//                print(path.parent().lastComponent.red + path.lastComponentWithoutExtension.yellow + path.description.blue)
                 writeToLocalizable(to: path)
             }
         }
         
-        defer {
-            DataHandleManager.defaltManager.mapError()
-        }
+        DataHandleManager.defaltManager.mapError()
     }
+    
 
 }
 
