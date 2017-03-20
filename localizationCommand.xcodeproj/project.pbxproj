@@ -400,7 +400,7 @@
 			path = Tests/CommandLineToolTests;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -408,7 +408,6 @@
 				OBJ_47 /* Tests */,
 				OBJ_51 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_51 /* Products */ = {
@@ -614,7 +613,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_51 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1169,7 +1168,7 @@
 				OBJ_103 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		OBJ_110 /* Build configuration list for PBXNativeTarget "PathKit" */ = {
 			isa = XCConfigurationList;
@@ -1178,7 +1177,7 @@
 				OBJ_112 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		OBJ_119 /* Build configuration list for PBXNativeTarget "commandService" */ = {
 			isa = XCConfigurationList;
@@ -1187,7 +1186,7 @@
 				OBJ_121 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		OBJ_140 /* Build configuration list for PBXNativeTarget "localizationCommand" */ = {
 			isa = XCConfigurationList;
@@ -1196,7 +1195,7 @@
 				OBJ_142 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		OBJ_159 /* Build configuration list for PBXNativeTarget "CommandLineToolTests" */ = {
 			isa = XCConfigurationList;
@@ -1205,7 +1204,7 @@
 				OBJ_161 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		OBJ_2 /* Build configuration list for PBXProject "localizationCommand" */ = {
 			isa = XCConfigurationList;
@@ -1214,7 +1213,7 @@
 				OBJ_4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		OBJ_61 /* Build configuration list for PBXNativeTarget "CommandLineKit" */ = {
 			isa = XCConfigurationList;
@@ -1223,7 +1222,7 @@
 				OBJ_63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		OBJ_70 /* Build configuration list for PBXNativeTarget "Rainbow" */ = {
 			isa = XCConfigurationList;
@@ -1232,7 +1231,7 @@
 				OBJ_72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		OBJ_87 /* Build configuration list for PBXNativeTarget "Spectre" */ = {
 			isa = XCConfigurationList;
@@ -1241,7 +1240,7 @@
 				OBJ_89 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
