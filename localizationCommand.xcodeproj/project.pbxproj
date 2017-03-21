@@ -221,7 +221,7 @@
 		OBJ_54 /* Spectre.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Spectre.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_55 /* Progress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Progress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_56 /* PathKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PathKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		OBJ_57 /* commandService.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = commandService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		OBJ_57 /* commandService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = commandService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_58 /* localizationCommand */ = {isa = PBXFileReference; lastKnownFileType = text; path = localizationCommand; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_59 /* CommandLineToolTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = CommandLineToolTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -400,7 +400,7 @@
 			path = Tests/CommandLineToolTests;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -408,7 +408,6 @@
 				OBJ_47 /* Tests */,
 				OBJ_51 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_51 /* Products */ = {
@@ -614,7 +613,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_51 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
