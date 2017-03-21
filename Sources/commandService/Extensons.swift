@@ -42,10 +42,9 @@ extension String{
     var isAmbiguous : Bool {
         let judge1 = self.contains("%d")
         let judge2 = self.contains("%@")
-        if judge1 != judge2 {
-            return true
-        }
-        return judge2||judge1
+        let judge3 = self.contains("\\")
+        
+        return judge2||judge1||judge3
     }
     
 }
