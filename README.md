@@ -31,12 +31,12 @@ localizationcommand -h
       replace to the file context.
 ```
 
-So,if you want to scan for your iOS project with localizationCommand, For example:
+### So,if you want to scan for your iOS project with localizationCommand, For example:
 ```
 localizationcommand -p "Your pro path" -e "paths you don`t wanna scan for"
 ```
 
-And,localizationCommand support two model to write to Localizable.strings file (default is replace model):
+### And,localizationCommand support two model to write to Localizable.strings file (default is replace model):
 ```
   -a, --append:
       append to the file context.
@@ -44,14 +44,14 @@ And,localizationCommand support two model to write to Localizable.strings file (
       replace to the file context.
 ```
 
-Then,localizationCommand can wirte the additional infomation to Localizable.strings file , like this:
+### Then,localizationCommand can wirte the additional infomation to Localizable.strings file , like this:
 
 ```
  /* EXTableViewCell : "comment" */
  "xxx" = "xxxx";
 ```
 
-if your  `NSLocalizedString(key: String, comment: String)->String` is Ambiguous ，At the end of commandline ,it will print:
+### if your  `NSLocalizedString(key: String, comment: String)->String` is Ambiguous ，At the end of commandline ,it will print:
 ```
 NSObject+RACSelectorSignal.m: 
 "A race condition occurred implementing %@ on class %@"
