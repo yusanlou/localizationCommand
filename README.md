@@ -60,3 +60,6 @@ RACSignal+Operations.m:
 ```
 ## More info
   http://www.jianshu.com/p/a9ec43123860
+## License
+
+localizationCommand is released under the MIT license. See LICENSE for details.
