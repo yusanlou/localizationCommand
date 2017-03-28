@@ -4,7 +4,7 @@ Command Line for localization (Supported OC and swift)
 The simplest way to install the localizationCommand command-line tool is via Homebrew. If you already have Homebrew installed, just type
 ```
 > brew update
-> brew install localizationCommand
+> brew tap BackNotGod/localizationCommand && brew install localizationCommand
 ```
 
 ## How to use it ?
