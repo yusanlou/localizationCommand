@@ -110,8 +110,6 @@ class Values {
         if !outPutStr.contains(className) {
             var insertStr = " \(className):\(comStr) | "
             outPutStr.insert(contentsOf: insertStr.characters, at: outPutStr.index(outPutStr.startIndex, offsetBy: 2))
-            print(outPutStr)
-
         }
     }
     
