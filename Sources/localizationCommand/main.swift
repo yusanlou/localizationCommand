@@ -20,15 +20,15 @@ let exceptPath = MultiStringOption(shortFlag: "e", longFlag: "exceptPath", helpM
 let projectPath = StringOption(shortFlag: "p", longFlag: "projectPath", helpMessage: "projectPath paths which should search in.")
 let version = BoolOption(shortFlag: "v", longFlag: "version",
                       helpMessage: "version.")
-let swift = BoolOption(shortFlag: "s", longFlag: "swift",
-                         helpMessage: "will scan code files of *.swift.")
-let oc = BoolOption(shortFlag: "m", longFlag: "oc",
-                         helpMessage: "will scan code files of *.m.")
+//let swift = BoolOption(shortFlag: "s", longFlag: "swift",
+//                         helpMessage: "will scan code files of *.swift.")
+//let oc = BoolOption(shortFlag: "m", longFlag: "oc",
+//                         helpMessage: "will scan code files of *.m.")
 // not in this time
 let appendOpt  = BoolOption(shortFlag: "a", longFlag: "append", helpMessage: "append to the file context.")
 let replaceOpt = BoolOption(shortFlag: "r", longFlag: "replace", helpMessage: "replace to the file context.")
 
-cli.setOptions(help,exceptPath,projectPath,version,swift,oc,appendOpt,replaceOpt)
+cli.setOptions(help,exceptPath,projectPath,version,appendOpt,replaceOpt)
 
 cli.formatOutput = { s,type in
     var str: String
@@ -53,7 +53,7 @@ do {
 }
 
 if version.value {
-    
+    print("1.0.3".blue)
     exit(EX_USAGE)
 }
 

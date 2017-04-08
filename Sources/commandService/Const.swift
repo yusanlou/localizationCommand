@@ -16,7 +16,7 @@ enum FileType :String{
     case other
 }
 
-let VERSION = "0.0.1"
+let VERSION = "1.0.3"
 let SWIFT_REGEX = "NSLocalizedString\\(\"(.+?)\", comment: (.+?)\\)"
 let OC_REGEX = "NSLocalizedString\\(@\"(.+?)\", (.+?)\\)"
 let LOCAL_ERGEX = "\".*?\""
