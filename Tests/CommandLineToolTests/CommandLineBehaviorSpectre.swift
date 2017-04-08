@@ -106,6 +106,20 @@ public func CommandLineToolSpectre() {
             }
         }
         
+        $0.describe("value test func "){
+            $0.it("'isSame' function"){
+                
+                let value1 = Values.init(value: "1111", comment: "")
+                let value2 = Values.init(value: "11111", comment: "")
+                
+                let judge1 = value1.localizedString == value2.localizedString
+                let judge2 = value1.comment == value2.comment
+                print(judge1&&judge2)
+                print(isSameValues(value1, value2:value2))
+                try expect(isSameValues(value1, value2:value2)).to.beFalse()
+                
+            }
+        }
         
         
     }

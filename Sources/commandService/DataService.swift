@@ -81,11 +81,6 @@ class listNode {
             tail = tail!.next
         }
     }
-    
-    func deleteNode() {
-        
-    }
-    
 }
 
 class linkNode {
@@ -103,9 +98,28 @@ class linkNode {
 
 class Values {
     let localizedString : String
-    let comment : String
+    var comment : String
+    var outPutStr : String
     init(value:String,comment:String) {
         self.localizedString = value
         self.comment = comment
+        outPutStr = "/* */"
     }
+    
+    func appendClassComent(className:String,comStr:String) {
+        if !outPutStr.contains(className) {
+            var insertStr = " \(className):\(comStr) | "
+            outPutStr.insert(contentsOf: insertStr.characters, at: outPutStr.index(outPutStr.startIndex, offsetBy: 2))
+            print(outPutStr)
+
+        }
+    }
+    
+}
+
+func isSameValues(_ value1:Values,value2:Values) -> Bool{
+    let judge1 = value1.localizedString == value2.localizedString
+    let judge2 = value1.comment == value2.comment
+
+    return (judge1 && judge2)
 }

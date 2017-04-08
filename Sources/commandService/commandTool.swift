@@ -55,9 +55,13 @@ extension RegexStringsSearcher {
                 if strMatches.count > 1 {
                     commont = NSString(string: extracted).substring(with: strMatches[1].rangeAt(0))
                 }
+                let value = Values.init(value: localizedString, comment: "\(commont)")
+                value.appendClassComent(className: path.lastComponentWithoutExtension, comStr: commont)
                 
-                let value = Values.init(value: localizedString, comment: "/* \(path.lastComponentWithoutExtension) : \(commont) */")
+                guard duplicateRemoval(path: path, value: value,className:path.lastComponentWithoutExtension) else {continue}
                 
+                let judge = !extracts.contains{isSameValues($0, value2: value)}
+                guard judge else {continue}
                 /// over here, if localizedString is isAmbiguous,we analysis error
                 if localizedString.isAmbiguous {
                     errors.append(value)
@@ -67,6 +71,7 @@ extension RegexStringsSearcher {
             }
             if extracts.count > 0 {
                 if path.lastComponent.contains("swift") {
+
                     DataHandleManager.defaltManager.swift_listNode?.insert(values: extracts, className: path.lastComponent, path: path.description)
                 }else{
                     DataHandleManager.defaltManager.oc_listNode?.insert(values: extracts, className: path.lastComponent, path: path.description)
@@ -82,6 +87,35 @@ extension RegexStringsSearcher {
     
 }
 
+/**
+ Duplicate removal
+ 
+ - parameter value
+ 
+ - returns: if there is no same value return true
+ */
+func duplicateRemoval(path:Path,value:Values,className:String) -> Bool{
+    
+    if path.lastComponent.contains("swift") {
+        return searchSame(link: DataHandleManager.defaltManager.swift_listNode!.head, value: value,className: className)
+    }
+        return searchSame(link: DataHandleManager.defaltManager.oc_listNode!.head, value: value,className:className)
+}
+
+// if there is no same value return true
+func searchSame(link:linkNode?,value:Values,className:String) -> Bool{
+    guard let _link = link else {return true}
+    let judge = _link.values.contains{isSameValues($0, value2:value)}
+    if judge {
+        _link.values.forEach({ (v) in
+            if isSameValues(v, value2: value){
+                v.appendClassComent(className: className, comStr: v.comment)
+            }
+        })
+        return false
+    }
+    return searchSame(link: _link.next, value: value,className: className)
+}
 
 protocol  RegexStringsWriter : StringsSearcher{
     func writeToLocalizable (to path:Path)
@@ -103,7 +137,7 @@ extension RegexStringsWriter {
             if let values = valuesOptial {
                 for value in values {
                     if !contentArr.contains(value.localizedString){
-                        content += "\n\(value.comment)\n\(value.localizedString) = \(value.localizedString);\n"
+                        content += "\n\(value.outPutStr)\n\(value.localizedString) = \(value.localizedString);\n"
                     }
                 }
             }
@@ -117,7 +151,7 @@ extension RegexStringsWriter {
             if let values = valuesOptial {
                 for value in values {
                     if !contentArr.contains(value.localizedString){
-                        content += "\n\(value.comment)\n\(value.localizedString) = \(value.localizedString);\n"
+                        content += "\n\(value.outPutStr)\n\(value.localizedString) = \(value.localizedString);\n"
                     }
                 }
             }
