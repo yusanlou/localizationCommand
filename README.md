@@ -21,10 +21,6 @@ localizationcommand -h
       projectPath paths which should search in.
   -v, --version:
       version.
-  -s, --swift:
-      will scan code files of *.swift.
-  -m, --oc:
-      will scan code files of *.m.
   -a, --append:
       append to the file context.
   -r, --replace:
