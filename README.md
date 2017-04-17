@@ -6,6 +6,12 @@ The simplest way to install the localizationCommand command-line tool is via Hom
 > brew update
 > brew tap BackNotGod/localizationCommand && brew install localizationCommand
 ```
+# or
+```
+> git clone https://github.com/BackNotGod/localizationCommand.git
+> cd localizationCommand
+> ./install.sh
+```
 
 ## How to use it ?
 ```
