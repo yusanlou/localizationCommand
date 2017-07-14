@@ -60,7 +60,7 @@ public struct localizationCommand :RegexStringsSearcher,RegexStringsWriter{
     
     func write () {
         for path in findAllLocalizable(with: projectPath, excluded: exceptPath){
-            if path.lastComponentWithoutExtension == "Localizable" && path.parent().lastComponent == "zh-Hans.lproj" {
+            if path.parent().lastComponent == "zh-Hans.lproj" {
                 writeToLocalizable(to: path)
             }
         }
