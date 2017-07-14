@@ -14,13 +14,15 @@ public struct localizationCommand :RegexStringsSearcher,RegexStringsWriter{
     var patterns: [String]
     var progress: ProgressBar
     
+    var localizationName = ""
     
-    public init(projPath:String,except:[String]){
+    public init(projPath:String,except:[String],localizationName:String){
         let path = Path(projPath).absolute()
         projectPath = path
         exceptPath = except.map{path + Path($0)}
         patterns = []
         progress = ProgressBar.init(count: 0)
+        self.localizationName = localizationName
     }
 
     
@@ -60,7 +62,7 @@ public struct localizationCommand :RegexStringsSearcher,RegexStringsWriter{
     
     func write () {
         for path in findAllLocalizable(with: projectPath, excluded: exceptPath){
-            if path.parent().lastComponent == "zh-Hans.lproj" {
+            if path.parent().lastComponent == "zh-Hans.lproj" && path.lastComponentWithoutExtension == localizationName{
                 writeToLocalizable(to: path)
             }
         }

@@ -20,6 +20,9 @@ let exceptPath = MultiStringOption(shortFlag: "e", longFlag: "exceptPath", helpM
 let projectPath = StringOption(shortFlag: "p", longFlag: "projectPath", helpMessage: "projectPath paths which should search in.")
 let version = BoolOption(shortFlag: "v", longFlag: "version",
                       helpMessage: "version.")
+
+let localizationName = StringOption(shortFlag: "n", longFlag: "localizationName", helpMessage: "Your localizatoin.string name (may be differential)")
+
 //let swift = BoolOption(shortFlag: "s", longFlag: "swift",
 //                         helpMessage: "will scan code files of *.swift.")
 //let oc = BoolOption(shortFlag: "m", longFlag: "oc",
@@ -28,7 +31,7 @@ let version = BoolOption(shortFlag: "v", longFlag: "version",
 let appendOpt  = BoolOption(shortFlag: "a", longFlag: "append", helpMessage: "append to the file context.")
 let replaceOpt = BoolOption(shortFlag: "r", longFlag: "replace", helpMessage: "replace to the file context.")
 
-cli.setOptions(help,exceptPath,projectPath,version,appendOpt,replaceOpt)
+cli.setOptions(help,exceptPath,projectPath,version,appendOpt,replaceOpt,localizationName)
 
 cli.formatOutput = { s,type in
     var str: String
@@ -62,6 +65,11 @@ if help.value{
     exit(EX_USAGE)
 }
 
+if localizationName.value == nil {
+    print("Sorry,Your localizationName is empty,Please enter your localizationName on your root proj path.".red)
+    exit(EX_USAGE)
+}
+
 if projectPath.value == nil {
     print("your projectPath input empty , if you want to do this , projectPath will be current path!".yellow)
     print("you wan to do this ? (y/n) or enter to skip.".red)
@@ -87,7 +95,7 @@ if exceptPath.value == nil {
     
 }
 
-var commandService = localizationCommand.init(projPath: projectPath.value ?? FileManager.default.currentDirectoryPath, except: exceptPath.value ?? [])
+var commandService = localizationCommand.init(projPath: projectPath.value ?? FileManager.default.currentDirectoryPath, except: exceptPath.value ?? [],localizationName: localizationName.value ?? "")
 writeAppend = appendOpt.value
 writeReplace = replaceOpt.value
 commandService.findTargetPath()
