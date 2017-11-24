@@ -1,5 +1,5 @@
-# localizationCommand
-Command Line for localization (Supported OC and swift)
+# localizationCommand description
+Command Line for localization (Supported OC and swift) , Instead of genstrings。
 ## Usage:
 The simplest way to install the localizationCommand command-line tool is via Homebrew. If you already have Homebrew installed, just type
 ```
